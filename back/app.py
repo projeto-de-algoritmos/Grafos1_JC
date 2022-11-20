@@ -21,33 +21,38 @@ def graph(graph, first, second):
 def checkRelationship(userTyped):
     connectedGodOne = random.choice(god)
     connectedGodTwo = random.choice(god)
+    oldconnectedGodOne = ''
+    oldconnectedGodTwo = ''
     attempts = 1
-    newConnectedGodOne = ''
-    newconnectedGodTwo = '1'
     godsAttemps = []
 
+    while connectedGodOne == connectedGodTwo:
+        connectedGodTwo = random.choice(god)
+
     if connectedGodOne != connectedGodTwo:
+        oldConnectedGodOne = connectedGodOne
+        oldConnectedGodTwo = connectedGodTwo
         search = graph(connectedGodOne, connectedGodTwo)
         if search:
-            while newConnectedGodOne != newconnectedGodTwo:
+            while connectedGodOne != connectedGodTwo:
                 searchBegin = graph(connectedGodOne, userTyped)
                 searchEnd = graph(userTyped, connectedGodTwo)
                 if len(searchBegin) == 1 and len(searchEnd) != 1:
-                    newConnectedGodOne = userTyped
+                    connectedGodOne = userTyped
                     attempts+=1
                     return userTyped
                 elif len(searchEnd) == 1 and len(searchBegin) != 1:
-                    newconnectedGodTwo = userTyped
+                    connectedGodTwo = userTyped
                     attempts+=1
                     return userTyped
                 elif len(searchEnd) == 1 and len(searchBegin) == 1: 
-                    newconnectedGodTwo = userTyped
-                    newConnectedGodOne = userTyped
+                    connectedGodTwo = userTyped
+                    connectedGodOne = userTyped
                     attempts+=1
-                    message = f'Você conectou os deuses {connectedGodOne} e {connectedGodTwo} em {attempts} tentativas!'
+                    message = f'Você conectou os deuses {oldConnectedGodOne} e {oldConnectedGodTwo} em {attempts} tentativas!'
                     return message
                 else:
-                    message = f'Os deuses {connectedGodOne},{connectedGodTwo} e {userTyped} não possuem ligação direta'
+                    message = f'Os deuses {oldConnectedGodOne},{oldConnectedGodTwo} e {userTyped} não possuem ligação direta'
                         return message
 
 #TO DO: IMPORTAR A LISTA DE DEUSES GREGOS E RECEBER O INPUT DO FRONT
