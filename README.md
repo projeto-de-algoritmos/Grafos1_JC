@@ -47,6 +47,9 @@ python3 app.py
 ## Uso 
 É um jogo, recomenda-se primeiro ver a lista de deuses disponíveis, digitando 'lista'. E assim ir tentando conectar os deuses mostrados.
 
+## Apresentação
+https://user-images.githubusercontent.com/40813329/202957554-e5a6b253-9744-4d00-808e-10fbee11c775.mp4
+
 ## Outros 
 A árvore genealógica da mitologia grega utilizada como base foi: [Árvore Genealógica Grega](https://cdn.discordapp.com/attachments/1043631302743699538/1043633133100224623/unknown.png).
 
